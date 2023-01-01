@@ -5,6 +5,7 @@ import { GlobalColors } from "../constants/colors";
 import AddPlace from "../screens/AddPlace";
 import AllPlaces from "../screens/AllPlaces";
 import Map from "../screens/Map";
+import PlaceDetails from "../screens/PlaceDetails";
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,10 @@ const SpStackNavigation = () => {
           options={{ title: "Add Place" }}
         />
         <Stack.Screen name="Map" component={Map} options={{ title: "Map" }} />
+        <Stack.Screen
+          name="PlaceDetails"
+          component={PlaceDetails}
+        ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

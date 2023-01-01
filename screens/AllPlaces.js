@@ -10,7 +10,6 @@ const AllPlaces = () => {
     async function fetchAll() {
       const places = await fetchAllPlaces();
       setLoadedPlaces(places);
-      console.log(loadedPlaces);
     }
     if (isFocused) {
       fetchAll();

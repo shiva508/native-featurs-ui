@@ -75,8 +75,35 @@ export function fetchAllPlaces() {
               )
             );
           }
-          console.log(places);
           resolve(places);
+        },
+        (_, error) => {
+          reject(error);
+        }
+      );
+    });
+  });
+  return promise;
+}
+
+export function getPlaceById(id) {
+  const promise = new Promise((resolve, reject) => {
+    database.transaction((tx) => {
+      tx.executeSql(
+        "select * from places where id=?",
+        [id],
+        (_, result) => {
+          const place = new Palce(
+            result.rows._array[0].title,
+            result.rows._array[0].imageUri,
+            {
+              address: result.rows._array[0].address,
+              lat: result.rows._array[0].lat,
+              lng: result.rows._array[0].lng,
+            },
+            result.rows._array[0].id
+          );
+          resolve(place);
         },
         (_, error) => {
           reject(error);
