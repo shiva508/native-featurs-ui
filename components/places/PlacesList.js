@@ -3,6 +3,7 @@ import { GlobalColors } from "../../constants/colors";
 import PlaceItem from "./PlaceItem";
 
 const PlacesList = ({ places }) => {
+  console.log(places);
   if (!places || places.length === 0) {
     return (
       <View style={styles.fallbackContainer}>
